@@ -1,0 +1,160 @@
+1
+00:00:01,260 --> 00:00:04,500
+Now we can think of
+fragments as mini activities,
+
+2
+00:00:04,500 --> 00:00:07,740
+as portions of UI each
+with their own lifecycle,
+
+3
+00:00:07,740 --> 00:00:10,769
+but they also have to be
+embedded within an activity.
+
+4
+00:00:10,769 --> 00:00:12,570
+So how does the
+fragment lifecycle
+
+5
+00:00:12,570 --> 00:00:14,759
+compare with the
+activity lifecycle,
+
+6
+00:00:14,759 --> 00:00:16,559
+and how do they work together?
+
+7
+00:00:16,559 --> 00:00:19,089
+Since a fragment must be
+embedded in an activity,
+
+8
+00:00:19,088 --> 00:00:22,169
+its lifecycle is directly
+affected by the host activity
+
+9
+00:00:22,170 --> 00:00:23,550
+lifecycle.
+
+10
+00:00:23,550 --> 00:00:26,160
+So as the host activity
+moves through its callbacks,
+
+11
+00:00:26,160 --> 00:00:29,640
+on start, on resume,
+on pause, and on stop,
+
+12
+00:00:29,640 --> 00:00:31,890
+so do any fragments it contains.
+
+13
+00:00:31,890 --> 00:00:34,530
+And in most cases, you
+can move any functionality
+
+14
+00:00:34,530 --> 00:00:37,530
+you would have put in those
+activity lifecycle callbacks
+
+15
+00:00:37,530 --> 00:00:40,560
+to the corresponding
+callback inside a fragment.
+
+16
+00:00:40,560 --> 00:00:42,600
+There are a few
+differences though.
+
+17
+00:00:42,600 --> 00:00:45,660
+For example, fragments have
+additional lifecycle callbacks
+
+18
+00:00:45,658 --> 00:00:47,819
+that allow them to
+be created or removed
+
+19
+00:00:47,820 --> 00:00:50,380
+in an activity at runtime.
+
+20
+00:00:50,380 --> 00:00:52,200
+So rather than
+building a new view
+
+21
+00:00:52,200 --> 00:00:54,990
+in on create, as
+activities do, fragments
+
+22
+00:00:54,990 --> 00:00:58,140
+use a different event for
+this called on create view.
+
+23
+00:00:58,140 --> 00:01:01,469
+On create view is where a
+fragment inflates its UI,
+
+24
+00:01:01,469 --> 00:01:03,448
+hooks up any data
+sources it needs,
+
+25
+00:01:03,450 --> 00:01:06,600
+and then returns the created
+view to the host activity.
+
+26
+00:01:06,599 --> 00:01:08,429
+And there's a corresponding
+on destroy view
+
+27
+00:01:08,430 --> 00:01:11,190
+callback that can be called
+before a host activity is
+
+28
+00:01:11,188 --> 00:01:12,419
+destroyed.
+
+29
+00:01:12,420 --> 00:01:14,280
+With these additional
+callbacks, a fragment
+
+30
+00:01:14,280 --> 00:01:16,858
+can actually cycle through
+its whole lifecycle
+
+31
+00:01:16,858 --> 00:01:19,949
+multiple times as its
+host activity is running.
+
+32
+00:01:19,950 --> 00:01:22,198
+Next, you'll get a little
+more info about the fragment
+
+33
+00:01:22,200 --> 00:01:25,370
+lifecycle and test your
+knowledge in a quiz.
+

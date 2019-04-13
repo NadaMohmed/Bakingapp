@@ -1,0 +1,290 @@
+1
+00:00:00,285 --> 00:00:02,660
+(VOICEOVER) I
+mentioned before that fragments
+
+2
+00:00:02,660 --> 00:00:06,349
+are essentially reusable pieces
+of UI, similar to a layout
+
+3
+00:00:06,349 --> 00:00:07,359
+or view group.
+
+4
+00:00:07,360 --> 00:00:08,960
+And they can be
+arranged differently
+
+5
+00:00:08,960 --> 00:00:10,650
+based on screen size.
+
+6
+00:00:10,650 --> 00:00:13,429
+They're commonly used to create
+single-pane and multi-pane
+
+7
+00:00:13,429 --> 00:00:17,239
+layouts, depending on what works
+best for a given screen size.
+
+8
+00:00:17,239 --> 00:00:20,989
+For example, here's the Gmail
+app, which has a list of emails
+
+9
+00:00:20,989 --> 00:00:23,809
+and their individual content
+appear on different screens
+
+10
+00:00:23,809 --> 00:00:24,910
+on a phone.
+
+11
+00:00:24,910 --> 00:00:28,160
+But on a tablet, the list
+of emails and the content
+
+12
+00:00:28,160 --> 00:00:30,079
+appear side by side
+because there's
+
+13
+00:00:30,079 --> 00:00:32,000
+enough room to see them both.
+
+14
+00:00:32,000 --> 00:00:34,460
+So the Gmail app
+layout changes based
+
+15
+00:00:34,460 --> 00:00:36,689
+on the screen size
+of an Android device,
+
+16
+00:00:36,689 --> 00:00:38,598
+whether that's small
+like on a phone
+
+17
+00:00:38,600 --> 00:00:40,460
+or larger like on a tablet.
+
+18
+00:00:40,460 --> 00:00:42,920
+And it uses fragments
+to define each layout
+
+19
+00:00:42,920 --> 00:00:45,560
+and use the screen space
+efficiently so that everything
+
+20
+00:00:45,560 --> 00:00:47,660
+is clear and readable.
+
+21
+00:00:47,658 --> 00:00:49,518
+The same goes for
+many weather apps,
+
+22
+00:00:49,520 --> 00:00:52,550
+which often have a list of days
+and separate detailed views
+
+23
+00:00:52,548 --> 00:00:56,000
+that appear differently on
+phone screens and tablets.
+
+24
+00:00:56,000 --> 00:00:59,210
+Same with the Contacts app
+and so many more examples.
+
+25
+00:00:59,210 --> 00:01:01,160
+A phone screen will
+have separate activities
+
+26
+00:01:01,158 --> 00:01:04,408
+for lists of information
+and detailed content views,
+
+27
+00:01:04,409 --> 00:01:08,209
+whereas a tablet will have these
+same views appear side by side.
+
+28
+00:01:08,209 --> 00:01:11,549
+In fact, this is such a common
+pattern that it has a name.
+
+29
+00:01:11,549 --> 00:01:14,179
+It's called the
+master, detail flow,
+
+30
+00:01:14,180 --> 00:01:17,510
+where the master list of items--
+like contact names or emails--
+
+31
+00:01:17,510 --> 00:01:19,969
+will take up an entire
+phone screen but only
+
+32
+00:01:19,968 --> 00:01:22,428
+the left portion
+of a tablet screen.
+
+33
+00:01:22,430 --> 00:01:24,980
+And the detailed content
+pane-- which often shows more
+
+34
+00:01:24,980 --> 00:01:27,910
+information about a selected
+item in the master list--
+
+35
+00:01:27,909 --> 00:01:30,959
+will take up the entire phone
+screen as a separate activity
+
+36
+00:01:30,959 --> 00:01:34,305
+but only the right portion
+of a larger tablet screen.
+
+37
+00:01:34,307 --> 00:01:36,890
+This is the pattern we're going
+to implement for our AndroidMe
+
+38
+00:01:36,890 --> 00:01:40,439
+app, with fragments that display
+a master list of all the custom
+
+39
+00:01:40,438 --> 00:01:42,619
+Android images, as
+well as fragments
+
+40
+00:01:42,620 --> 00:01:46,859
+that display parts of a detailed
+full-body image of the Android.
+
+41
+00:01:46,858 --> 00:01:49,428
+Then, we'll arrange them in
+single-pane and multi-pane
+
+42
+00:01:49,430 --> 00:01:52,620
+layouts, depending on the
+size of the device screen.
+
+43
+00:01:52,620 --> 00:01:55,310
+So how do we build
+something like this?
+
+44
+00:01:55,310 --> 00:01:56,960
+To implement this
+on tablet, we'll
+
+45
+00:01:56,959 --> 00:01:59,539
+have one main activity that
+contains our master list
+
+46
+00:01:59,540 --> 00:02:03,470
+fragment, the master list of all
+images we'll be selecting from.
+
+47
+00:02:03,468 --> 00:02:05,268
+Then on the right
+side of the screen,
+
+48
+00:02:05,269 --> 00:02:07,728
+we'll have three total
+body part fragments,
+
+49
+00:02:07,730 --> 00:02:11,030
+which make up the head, body,
+and leg portions of the custom
+
+50
+00:02:11,030 --> 00:02:12,770
+Android we want to make.
+
+51
+00:02:12,770 --> 00:02:15,590
+And on a phone, we'll have the
+master list fragment and body
+
+52
+00:02:15,590 --> 00:02:18,289
+part fragments held in
+two separate activities
+
+53
+00:02:18,288 --> 00:02:21,168
+so that each takes up the
+full area of the phone screen.
+
+54
+00:02:21,169 --> 00:02:24,019
+And we'll see each
+clearly and in sequence.
+
+55
+00:02:24,020 --> 00:02:25,730
+To complete this app,
+you'll be provided
+
+56
+00:02:25,729 --> 00:02:27,919
+with some starting code
+and then given tasks
+
+57
+00:02:27,919 --> 00:02:30,109
+to help you build this final UI.
+
+58
+00:02:30,110 --> 00:02:33,050
+Next, we'll talk more about why
+you'd use fragments as opposed
+
+59
+00:02:33,050 --> 00:02:34,340
+to simple view groups.
+
+60
+00:02:34,340 --> 00:02:36,840
+And then we'll dive into code.
+

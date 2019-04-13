@@ -1,0 +1,368 @@
+1
+00:00:00,500 --> 00:00:02,070
+After
+that last exercise,
+
+2
+00:00:02,068 --> 00:00:04,710
+you should now have all the
+body part fragments displayed
+
+3
+00:00:04,710 --> 00:00:05,501
+on screen.
+
+4
+00:00:05,501 --> 00:00:06,960
+But the app is kind
+of boring right
+
+5
+00:00:06,960 --> 00:00:11,070
+now, so the next thing we'll
+do is add some fun interaction.
+
+6
+00:00:11,070 --> 00:00:14,220
+One common user interaction
+is to update the image display
+
+7
+00:00:14,220 --> 00:00:17,609
+when a user clicks on a fragment
+or a view in a fragment.
+
+8
+00:00:17,609 --> 00:00:20,339
+So I'll be creating a click
+listener for our body part
+
+9
+00:00:20,338 --> 00:00:22,198
+fragment, so that
+each fragment can
+
+10
+00:00:22,199 --> 00:00:25,559
+respond to clicks by changing
+the image it's displaying.
+
+11
+00:00:25,559 --> 00:00:27,868
+The idea is that on
+a click, the fragment
+
+12
+00:00:27,870 --> 00:00:29,789
+will update to
+display the next image
+
+13
+00:00:29,789 --> 00:00:33,000
+resource in its stored
+list of image IDs.
+
+14
+00:00:33,000 --> 00:00:35,429
+You might be used to attaching
+click listeners on a view
+
+15
+00:00:35,429 --> 00:00:37,289
+through an activity,
+but remember
+
+16
+00:00:37,289 --> 00:00:39,929
+that the power of fragments
+is in their re-usability
+
+17
+00:00:39,929 --> 00:00:41,280
+and modularity.
+
+18
+00:00:41,280 --> 00:00:42,929
+So in this case,
+it's a good idea
+
+19
+00:00:42,929 --> 00:00:46,079
+to handle the click interaction
+within the fragment class,
+
+20
+00:00:46,079 --> 00:00:49,289
+since it repeats for
+all body part fragments.
+
+21
+00:00:49,289 --> 00:00:51,960
+So let's go to our body
+part fragment code.
+
+22
+00:00:51,960 --> 00:00:53,880
+So I'll want to add
+a click listener
+
+23
+00:00:53,880 --> 00:00:57,230
+on the image view in our
+body part fragment class.
+
+24
+00:00:57,228 --> 00:01:00,808
+Then, on a click, I'll increment
+the value of mListIndex,
+
+25
+00:01:00,810 --> 00:01:03,179
+and update the image
+resource to the next image
+
+26
+00:01:03,179 --> 00:01:05,519
+in our list of image IDs.
+
+27
+00:01:05,519 --> 00:01:07,200
+The image view will
+need to be declared
+
+28
+00:01:07,200 --> 00:01:10,500
+final, since it's being
+accessed now by an inner class.
+
+29
+00:01:10,500 --> 00:01:12,688
+I'll also want to give
+our fragment a way
+
+30
+00:01:12,688 --> 00:01:15,358
+to figure out if it's reached
+the end of the list of images
+
+31
+00:01:15,358 --> 00:01:16,619
+to display.
+
+32
+00:01:16,620 --> 00:01:18,480
+And if the list index
+reaches the value
+
+33
+00:01:18,480 --> 00:01:21,630
+at the end of the list, I'll
+reset the displayed list index
+
+34
+00:01:21,629 --> 00:01:24,929
+to the first image
+ID at index 0.
+
+35
+00:01:24,930 --> 00:01:27,750
+This way, I can keep on clicking
+through, updating the list
+
+36
+00:01:27,750 --> 00:01:30,310
+index and image
+resource to display.
+
+37
+00:01:30,310 --> 00:01:32,969
+So let's see what it looks
+like when I run this app now.
+
+38
+00:01:32,968 --> 00:01:36,038
+Each body part fragment has
+an internal click listener.
+
+39
+00:01:36,040 --> 00:01:39,270
+And it changes image IDs based
+on how many times I click.
+
+40
+00:01:39,269 --> 00:01:41,170
+So the functionality
+looks pretty good.
+
+41
+00:01:41,170 --> 00:01:42,960
+But look at what
+happens when I rotate.
+
+42
+00:01:42,959 --> 00:01:46,079
+When I rotate the device,
+it resets the images.
+
+43
+00:01:46,078 --> 00:01:48,148
+And I want it to
+maintain state, so I'll
+
+44
+00:01:48,150 --> 00:01:50,910
+want to have a way to save the
+current state of the body part
+
+45
+00:01:50,909 --> 00:01:51,929
+fragments.
+
+46
+00:01:51,930 --> 00:01:53,640
+Let's go back to our code.
+
+47
+00:01:53,640 --> 00:01:57,079
+I can do this by overriding the
+method, onSaveInstanceState,
+
+48
+00:01:57,078 --> 00:01:59,878
+and saving the current
+variables in a bundle.
+
+49
+00:01:59,879 --> 00:02:03,359
+And a bundle in this case is
+just a set of key value pairs.
+
+50
+00:02:03,358 --> 00:02:05,369
+I'll want to have this
+bundle include the image
+
+51
+00:02:05,370 --> 00:02:09,090
+list and the current list index
+of this body part fragment.
+
+52
+00:02:09,090 --> 00:02:11,250
+I'll define the strings
+as static final string
+
+53
+00:02:11,250 --> 00:02:15,930
+variables, named
+imageIdList and ListIndex.
+
+54
+00:02:15,930 --> 00:02:18,790
+Then I'll save the bundle of
+variables, the imageIdList,
+
+55
+00:02:18,788 --> 00:02:22,138
+and the ListIndex in
+onSaveInstanceState.
+
+56
+00:02:22,139 --> 00:02:25,819
+I attached the current image
+list to the imageIdList string,
+
+57
+00:02:25,818 --> 00:02:29,908
+and I attached the current
+mListIndex to ListIndex string.
+
+58
+00:02:29,908 --> 00:02:32,038
+So I am storing the
+current imageIdList
+
+59
+00:02:32,038 --> 00:02:33,988
+and the current ListIndex.
+
+60
+00:02:33,990 --> 00:02:36,060
+Then, at the start
+of onCreateView,
+
+61
+00:02:36,060 --> 00:02:38,759
+if I detect a saved
+state, I'll load the value
+
+62
+00:02:38,758 --> 00:02:40,888
+of these saved variables.
+
+63
+00:02:40,889 --> 00:02:43,329
+Finally, to complete
+the saving state code,
+
+64
+00:02:43,330 --> 00:02:45,900
+I'll have to go back to
+the Android Me activity.
+
+65
+00:02:45,900 --> 00:02:47,520
+And I'll slightly
+modify this code
+
+66
+00:02:47,520 --> 00:02:49,920
+so that I'm only creating
+new fragments if there are
+
+67
+00:02:49,919 --> 00:02:52,500
+no previously saved fragments.
+
+68
+00:02:52,500 --> 00:02:54,479
+So I'll wrap this
+fragment creation code
+
+69
+00:02:54,479 --> 00:02:56,340
+in an if statement
+that checks if there's
+
+70
+00:02:56,340 --> 00:02:58,200
+a saved InstanceState.
+
+71
+00:02:58,199 --> 00:03:00,030
+Now let's run our app again.
+
+72
+00:03:00,030 --> 00:03:04,288
+Now I'll click on my body
+part images and rotate.
+
+73
+00:03:04,288 --> 00:03:07,089
+This time, the fragment
+states are all saved.
+
+74
+00:03:07,090 --> 00:03:08,968
+Next, it will be your
+turn to follow along
+
+75
+00:03:08,968 --> 00:03:10,769
+with the to do's in
+code, and play around
+
+76
+00:03:10,770 --> 00:03:13,350
+with click interactions.
+

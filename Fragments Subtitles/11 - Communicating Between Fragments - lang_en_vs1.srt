@@ -1,0 +1,108 @@
+1
+00:00:00,499 --> 00:00:02,620
+Our next task will
+be to communicate
+
+2
+00:00:02,620 --> 00:00:05,500
+between our MasterList
+and BodyPartFragments.
+
+3
+00:00:05,500 --> 00:00:07,548
+And this can get
+a little tricky.
+
+4
+00:00:07,549 --> 00:00:10,300
+We already know that the real
+advantage to using fragments
+
+5
+00:00:10,300 --> 00:00:13,050
+is their modularity
+and reusability.
+
+6
+00:00:13,050 --> 00:00:15,730
+So to build them for
+maximum reusability,
+
+7
+00:00:15,730 --> 00:00:18,370
+we should make each
+fragment self-contained.
+
+8
+00:00:18,370 --> 00:00:20,710
+This just means that a
+single fragment will also
+
+9
+00:00:20,710 --> 00:00:23,859
+contain code that defines
+its layout and behavior, when
+
+10
+00:00:23,859 --> 00:00:25,929
+it comes to user interaction.
+
+11
+00:00:25,928 --> 00:00:28,479
+And it also means that,
+generally, fragments
+
+12
+00:00:28,480 --> 00:00:31,449
+can never directly
+communicate with one another.
+
+13
+00:00:31,449 --> 00:00:33,700
+But then, how can you
+communicate between two
+
+14
+00:00:33,700 --> 00:00:35,679
+self-contained fragments?
+
+15
+00:00:35,679 --> 00:00:38,228
+Well, all fragment to
+fragment communication
+
+16
+00:00:38,228 --> 00:00:40,539
+can be done through
+a shared activity.
+
+17
+00:00:40,539 --> 00:00:43,268
+To give a fragment the ability
+to communicate up to its host
+
+18
+00:00:43,270 --> 00:00:45,580
+activity, it's good
+practice to define
+
+19
+00:00:45,579 --> 00:00:47,798
+an interface in
+the fragment class,
+
+20
+00:00:47,798 --> 00:00:50,079
+and implement it
+within the activity.
+
+21
+00:00:50,079 --> 00:00:51,878
+This is easier to
+understand in code.
+
+22
+00:00:51,880 --> 00:00:55,200
+So let's jump in and
+define an interface.
+

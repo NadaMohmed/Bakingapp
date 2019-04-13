@@ -1,0 +1,259 @@
+1
+00:00:00,670 --> 00:00:01,229
+OK.
+
+2
+00:00:01,229 --> 00:00:03,326
+Now that you know a bit
+more about fragments
+
+3
+00:00:03,326 --> 00:00:04,910
+and why they're so
+useful for building
+
+4
+00:00:04,910 --> 00:00:08,000
+a responsive and flexible
+UI, let's dive into the code
+
+5
+00:00:08,000 --> 00:00:09,769
+you'll be starting with.
+
+6
+00:00:09,769 --> 00:00:12,469
+And let's take a look at what
+the final app will look like.
+
+7
+00:00:12,470 --> 00:00:14,720
+Throughout this lesson we'll
+be building an Android Me
+
+8
+00:00:14,720 --> 00:00:18,230
+app that lets us create
+a custom android.
+
+9
+00:00:18,230 --> 00:00:20,210
+The end result will
+look like this.
+
+10
+00:00:20,210 --> 00:00:22,010
+It lets you select
+different images
+
+11
+00:00:22,010 --> 00:00:24,140
+for the head,
+body, and leg parts
+
+12
+00:00:24,140 --> 00:00:26,330
+of the android from a list.
+
+13
+00:00:26,329 --> 00:00:27,888
+And when you click
+on an image, it
+
+14
+00:00:27,890 --> 00:00:30,410
+updates how the final android
+looks in this layout that
+
+15
+00:00:30,410 --> 00:00:32,719
+displays the whole android.
+
+16
+00:00:32,719 --> 00:00:37,009
+So you can select body, legs,
+and heads as you choose.
+
+17
+00:00:37,009 --> 00:00:38,988
+This is the final two
+pane tablet layout,
+
+18
+00:00:38,990 --> 00:00:41,480
+but we'll be starting by coding
+up the layouts on a smaller
+
+19
+00:00:41,478 --> 00:00:43,558
+screen phone first.
+
+20
+00:00:43,560 --> 00:00:45,560
+It will be up to you to
+write most of this code,
+
+21
+00:00:45,560 --> 00:00:47,120
+but I've provided
+some starter code
+
+22
+00:00:47,118 --> 00:00:49,649
+so that you'll be able to focus
+on creating and displaying
+
+23
+00:00:49,649 --> 00:00:51,259
+fragments.
+
+24
+00:00:51,259 --> 00:00:53,929
+The code you'll be starting
+with includes some image assets
+
+25
+00:00:53,929 --> 00:00:57,109
+and a utility class that
+helps you load the images.
+
+26
+00:00:57,109 --> 00:01:00,789
+All the images we're using are
+in the drawable folder here.
+
+27
+00:01:00,789 --> 00:01:04,519
+And there are 12 images
+each for bodies like this.
+
+28
+00:01:04,519 --> 00:01:09,109
+Also 12 images for heads, and
+12 for different types of legs.
+
+29
+00:01:09,108 --> 00:01:12,318
+We also have a utility class
+called android image assets.
+
+30
+00:01:12,319 --> 00:01:15,859
+And in here, you're given
+ArrayLists of those image IDs--
+
+31
+00:01:15,858 --> 00:01:18,289
+which are integers-- and
+their corresponding getter
+
+32
+00:01:18,290 --> 00:01:20,180
+methods at the bottom.
+
+33
+00:01:20,180 --> 00:01:23,000
+getHeads returns
+all head image IDs.
+
+34
+00:01:23,000 --> 00:01:26,299
+getBodies returns all the
+ideas for images of bodies.
+
+35
+00:01:26,299 --> 00:01:28,429
+getLegs returns
+the leg image IDs.
+
+36
+00:01:28,430 --> 00:01:32,840
+And finally, getAll will return
+a list of all the image IDs.
+
+37
+00:01:32,840 --> 00:01:35,326
+Nothing in this utility
+class should be changed.
+
+38
+00:01:35,325 --> 00:01:36,948
+We'll be using these
+methods later when
+
+39
+00:01:36,950 --> 00:01:40,430
+we build fragments and tell
+them what images to display.
+
+40
+00:01:40,430 --> 00:01:42,590
+You'll also start with
+a basic activity called
+
+41
+00:01:42,590 --> 00:01:46,049
+Android Me activity, and a
+corresponding, fairly simple
+
+42
+00:01:46,049 --> 00:01:47,090
+layout.
+
+43
+00:01:47,090 --> 00:01:50,210
+You'll also see a class
+called master list adapter.
+
+44
+00:01:50,209 --> 00:01:53,239
+This adapter is responsible
+for taking in a list of images
+
+45
+00:01:53,239 --> 00:01:55,099
+and displaying them
+as a grid view list,
+
+46
+00:01:55,099 --> 00:01:57,409
+as we saw on the tablet before.
+
+47
+00:01:57,409 --> 00:01:59,149
+All this code is
+well commented, and I
+
+48
+00:01:59,150 --> 00:02:00,733
+encourage you to
+look around before we
+
+49
+00:02:00,733 --> 00:02:02,737
+dive into creating fragments.
+
+50
+00:02:02,736 --> 00:02:04,819
+The instructions for
+downloading this starter code
+
+51
+00:02:04,819 --> 00:02:07,728
+can be found in text
+following this video.
+
+52
+00:02:07,730 --> 00:02:10,280
+Our first task will be to
+create a single fragment that
+
+53
+00:02:10,280 --> 00:02:12,990
+displays the head of our
+custom android image.
+
+54
+00:02:12,990 --> 00:02:14,770
+Let's get started.
+

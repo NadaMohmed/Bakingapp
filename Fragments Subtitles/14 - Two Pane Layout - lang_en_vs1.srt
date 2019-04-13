@@ -1,0 +1,492 @@
+1
+00:00:00,372 --> 00:00:02,080
+Now we're
+on the homestretch,
+
+2
+00:00:02,080 --> 00:00:05,470
+and we only have one more task
+to complete before our app is
+
+3
+00:00:05,469 --> 00:00:07,660
+responsive and finished.
+
+4
+00:00:07,660 --> 00:00:10,630
+The last step is to create a
+two-pane layout that appears
+
+5
+00:00:10,630 --> 00:00:12,820
+on larger tablet screens.
+
+6
+00:00:12,820 --> 00:00:15,460
+To review, we want the
+master list and three body
+
+7
+00:00:15,460 --> 00:00:18,400
+part fragments to be separate
+activities on a small phone
+
+8
+00:00:18,399 --> 00:00:19,219
+screen.
+
+9
+00:00:19,219 --> 00:00:22,390
+But we want them side by side
+in the same main activity
+
+10
+00:00:22,390 --> 00:00:24,850
+on a tablet like this.
+
+11
+00:00:24,850 --> 00:00:26,350
+To implement this
+in code will be
+
+12
+00:00:26,350 --> 00:00:29,000
+similar to how you'd create a
+landscape layout or a smallest
+
+13
+00:00:29,000 --> 00:00:31,390
+width layout, with a
+new layout resource
+
+14
+00:00:31,390 --> 00:00:34,210
+folder that defines a two-pane
+layout for a larger screen
+
+15
+00:00:34,210 --> 00:00:35,890
+size.
+
+16
+00:00:35,890 --> 00:00:39,850
+For tablets, this means
+defining a new layout folder.
+
+17
+00:00:39,850 --> 00:00:43,359
+And tablet screens have a
+smallest width of 600 dp,
+
+18
+00:00:43,359 --> 00:00:45,130
+so we'll create a
+folder for this layout
+
+19
+00:00:45,130 --> 00:00:49,060
+and name it layout-sw600dp.
+
+20
+00:00:49,060 --> 00:00:52,210
+Then, in this folder, we'll
+create an activity_main XML
+
+21
+00:00:52,210 --> 00:00:53,270
+file.
+
+22
+00:00:53,270 --> 00:00:57,470
+This will override the
+default activity_main file.
+
+23
+00:00:57,469 --> 00:00:59,469
+And in here, we'll
+define our two panes
+
+24
+00:00:59,469 --> 00:01:02,379
+as a horizontal linear layout.
+
+25
+00:01:02,380 --> 00:01:06,109
+We'll start with the master
+list on the left side.
+
+26
+00:01:06,108 --> 00:01:08,919
+Then I'll include a small
+divider line and our body part
+
+27
+00:01:08,920 --> 00:01:11,320
+fragments on the right side.
+
+28
+00:01:11,319 --> 00:01:13,448
+Like before, I'm
+using the fragment tag
+
+29
+00:01:13,450 --> 00:01:15,159
+to hold our master
+list of images,
+
+30
+00:01:15,159 --> 00:01:19,090
+because this fragment is static
+and doesn't change at runtime.
+
+31
+00:01:19,090 --> 00:01:21,370
+And I'm putting in three
+frame layout containers
+
+32
+00:01:21,370 --> 00:01:23,380
+in a vertical linear
+layout on the right side
+
+33
+00:01:23,379 --> 00:01:27,039
+of the screen for our
+dynamic body part fragments.
+
+34
+00:01:27,040 --> 00:01:29,770
+You'll notice that these have
+the same IDs as in our phone
+
+35
+00:01:29,769 --> 00:01:31,969
+activity_android_me layout.
+
+36
+00:01:31,968 --> 00:01:34,538
+And the linear layout that
+holds all these containers
+
+37
+00:01:34,540 --> 00:01:37,270
+is called
+android_me_linear_layout.
+
+38
+00:01:37,269 --> 00:01:41,200
+So all this XML code should
+look fairly familiar.
+
+39
+00:01:41,200 --> 00:01:42,650
+Now back to our main activity.
+
+40
+00:01:42,650 --> 00:01:45,040
+We'll have to distinguish
+between this two-pane tablet
+
+41
+00:01:45,040 --> 00:01:47,204
+case and the
+single-pane phone case
+
+42
+00:01:47,203 --> 00:01:49,118
+so that we can display
+the fragments correctly
+
+43
+00:01:49,120 --> 00:01:51,640
+for all screen sizes.
+
+44
+00:01:51,640 --> 00:01:53,769
+To track whether this
+is in two-pane mode,
+
+45
+00:01:53,769 --> 00:01:57,939
+I'll create a Boolean
+variable named mTwoPane.
+
+46
+00:01:57,938 --> 00:02:00,788
+Then in onCreate, I'll know
+if it's in two-pane mode
+
+47
+00:02:00,790 --> 00:02:02,530
+by the presence of
+the linear layout
+
+48
+00:02:02,530 --> 00:02:05,799
+that we added in the main
+layout file just now.
+
+49
+00:02:05,799 --> 00:02:08,169
+When the app first
+starts in onCreate,
+
+50
+00:02:08,169 --> 00:02:11,290
+this layout does not yet
+exist on a single-pane phone,
+
+51
+00:02:11,288 --> 00:02:14,138
+but it does on a
+larger tablet screen.
+
+52
+00:02:14,139 --> 00:02:16,305
+So whether it's null
+or not indicates
+
+53
+00:02:16,306 --> 00:02:17,680
+whether this should
+be a two-pane
+
+54
+00:02:17,680 --> 00:02:19,569
+or a single-pane layout.
+
+55
+00:02:19,568 --> 00:02:21,458
+Then if it is in
+two-pane mode I'll
+
+56
+00:02:21,460 --> 00:02:24,230
+have to populate the fragment
+containers with new body part
+
+57
+00:02:24,229 --> 00:02:26,959
+fragments.
+
+58
+00:02:26,960 --> 00:02:28,629
+This will be very
+similar to the code
+
+59
+00:02:28,628 --> 00:02:30,548
+in the android_me activity.
+
+60
+00:02:30,550 --> 00:02:33,100
+I'll get a fragment manager,
+and create new body part
+
+61
+00:02:33,098 --> 00:02:35,560
+fragments for the head,
+body, and leg images
+
+62
+00:02:35,560 --> 00:02:37,500
+that are on screen.
+
+63
+00:02:37,500 --> 00:02:39,218
+In the two-pane
+case, we also want
+
+64
+00:02:39,218 --> 00:02:40,780
+to get rid of the Next button.
+
+65
+00:02:40,780 --> 00:02:43,400
+So we'll set its
+visibility to gone.
+
+66
+00:02:43,400 --> 00:02:46,000
+I'll also set the number
+of grid view columns
+
+67
+00:02:46,000 --> 00:02:48,508
+to two, for a better
+looking display,
+
+68
+00:02:48,508 --> 00:02:50,900
+and these are both
+just small UI changes.
+
+69
+00:02:50,901 --> 00:02:53,109
+Getting rid of the button,
+and changing our grid view
+
+70
+00:02:53,110 --> 00:02:54,760
+slightly.
+
+71
+00:02:54,758 --> 00:02:56,798
+Lastly, I'll have to
+handle communication
+
+72
+00:02:56,800 --> 00:02:59,620
+slightly differently, since
+the tablet should not ever
+
+73
+00:02:59,620 --> 00:03:03,560
+start a new activity when
+a list item is clicked.
+
+74
+00:03:03,560 --> 00:03:05,550
+So let's scroll down
+to our callback method,
+
+75
+00:03:05,550 --> 00:03:07,810
+onImageSelected.
+
+76
+00:03:07,810 --> 00:03:10,120
+In here we'll want to
+update the click behavior
+
+77
+00:03:10,120 --> 00:03:12,460
+to handle this two-pane case.
+
+78
+00:03:12,460 --> 00:03:15,218
+In the two-pane case, when
+a list image is clicked,
+
+79
+00:03:15,218 --> 00:03:18,038
+we'll immediately want to
+replace the existing body part
+
+80
+00:03:18,038 --> 00:03:21,158
+fragment with an updated
+one with the selected image
+
+81
+00:03:21,158 --> 00:03:22,769
+resource.
+
+82
+00:03:22,770 --> 00:03:25,659
+First I'll create an if-else
+to separate our two-pane case
+
+83
+00:03:25,658 --> 00:03:28,000
+for our single-pane phone case.
+
+84
+00:03:28,000 --> 00:03:30,718
+Then, to replace body parts
+fragments dynamically,
+
+85
+00:03:30,718 --> 00:03:33,250
+we'll be using switch
+code as before to identify
+
+86
+00:03:33,250 --> 00:03:35,438
+which type of image
+has been clicked on--
+
+87
+00:03:35,438 --> 00:03:38,258
+head, body, or leg.
+
+88
+00:03:38,258 --> 00:03:41,198
+Then create a new body
+part fragment accordingly,
+
+89
+00:03:41,199 --> 00:03:43,659
+setting the correct
+resources and image ID,
+
+90
+00:03:43,658 --> 00:03:46,408
+and replacing the
+existing fragment.
+
+91
+00:03:46,408 --> 00:03:48,310
+Here I've written
+the code to handle
+
+92
+00:03:48,310 --> 00:03:50,590
+the head fragment, case 0.
+
+93
+00:03:50,590 --> 00:03:53,110
+If a user has clicked
+on an image of a head,
+
+94
+00:03:53,110 --> 00:03:55,630
+this creates a new fragment.
+
+95
+00:03:55,628 --> 00:03:58,268
+It sets the list of
+images and the image ID
+
+96
+00:03:58,270 --> 00:04:00,340
+based on the click position.
+
+97
+00:04:00,340 --> 00:04:02,468
+And finally, using a
+fragment transaction,
+
+98
+00:04:02,468 --> 00:04:04,500
+it replaces the
+existing head fragment
+
+99
+00:04:04,500 --> 00:04:06,688
+by referencing the container.
+
+100
+00:04:06,688 --> 00:04:08,769
+I'll leave it up to you
+to complete this code
+
+101
+00:04:08,770 --> 00:04:11,800
+for the rest of the fragments
+in the next exercise.
+
+102
+00:04:11,800 --> 00:04:14,290
+After you add the code to
+replace all types of fragments
+
+103
+00:04:14,288 --> 00:04:16,087
+when an image is
+selected, this should
+
+104
+00:04:16,088 --> 00:04:18,730
+complete our flexible UI.
+

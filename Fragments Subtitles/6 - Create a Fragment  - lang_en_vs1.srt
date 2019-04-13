@@ -1,0 +1,534 @@
+1
+00:00:00,054 --> 00:00:01,470
+The
+easiest way to see
+
+2
+00:00:01,470 --> 00:00:03,298
+how to create and
+display a fragment
+
+3
+00:00:03,298 --> 00:00:05,189
+is to jump straight into code.
+
+4
+00:00:05,190 --> 00:00:07,316
+Right now, our app
+doesn't display anything,
+
+5
+00:00:07,315 --> 00:00:08,939
+and we'll want to
+create fragments that
+
+6
+00:00:08,939 --> 00:00:11,070
+display our Android body parts.
+
+7
+00:00:11,070 --> 00:00:13,589
+Let's start by just
+displaying the head.
+
+8
+00:00:13,589 --> 00:00:15,929
+To create a fragment, the
+first thing I'll need to do
+
+9
+00:00:15,929 --> 00:00:17,910
+is define a new
+layout file for what I
+
+10
+00:00:17,910 --> 00:00:19,920
+want the fragment to look like.
+
+11
+00:00:19,920 --> 00:00:21,929
+This layout will define
+what view or views
+
+12
+00:00:21,928 --> 00:00:24,058
+I want the fragment to contain.
+
+13
+00:00:24,059 --> 00:00:27,629
+And I'll name this
+Fragment_body_part.
+
+14
+00:00:27,629 --> 00:00:29,278
+And I want this to
+display an image
+
+15
+00:00:29,280 --> 00:00:31,320
+of a head or any
+other body part,
+
+16
+00:00:31,320 --> 00:00:34,408
+and so I'll just have it
+be a single image view.
+
+17
+00:00:34,408 --> 00:00:36,298
+Then click OK to create.
+
+18
+00:00:36,298 --> 00:00:39,509
+Now, if we look in here, it's
+just a single image view.
+
+19
+00:00:39,509 --> 00:00:42,670
+Now we have our image view, and
+I just need to give it an ID,
+
+20
+00:00:42,670 --> 00:00:45,100
+so I can refer to it later on.
+
+21
+00:00:45,100 --> 00:00:47,850
+It's a good idea to always
+provide a descriptive ID,
+
+22
+00:00:47,850 --> 00:00:51,450
+so I'll give this image view
+an ID body_part_image_view.
+
+23
+00:00:51,450 --> 00:00:54,750
+And at the top I'll add
+a descriptive comment.
+
+24
+00:00:54,750 --> 00:00:56,399
+Now let's go back to our to-dos.
+
+25
+00:00:56,399 --> 00:00:58,530
+The next step is to
+create a new class,
+
+26
+00:00:58,530 --> 00:01:00,929
+called BodyPartFragment,
+that will display an image
+
+27
+00:01:00,929 --> 00:01:03,118
+of an Android Me body part.
+
+28
+00:01:03,118 --> 00:01:05,120
+This Fragment class
+will inflate the layout
+
+29
+00:01:05,120 --> 00:01:07,600
+that we just created.
+
+30
+00:01:07,599 --> 00:01:09,899
+So in the UI folder,
+I'll create a fragment
+
+31
+00:01:09,900 --> 00:01:12,130
+by creating a new class.
+
+32
+00:01:12,129 --> 00:01:15,179
+I'll name it BodyPartFragment,
+since it will hold the Android
+
+33
+00:01:15,180 --> 00:01:19,220
+body part images, and its
+superclass will be Fragment.
+
+34
+00:01:19,218 --> 00:01:22,140
+And I'm using the Fragment
+from the support library.
+
+35
+00:01:22,140 --> 00:01:23,739
+Then click OK.
+
+36
+00:01:23,739 --> 00:01:27,118
+Now we have an empty class
+that extends from Fragment.
+
+37
+00:01:27,120 --> 00:01:28,950
+This extension is
+important, because it's
+
+38
+00:01:28,950 --> 00:01:32,049
+how Android knows to treat this
+class, and its lifecycle events
+
+39
+00:01:32,049 --> 00:01:34,769
+and creation, as a fragment.
+
+40
+00:01:34,769 --> 00:01:38,109
+Now every fragment will
+implement a couple of methods.
+
+41
+00:01:38,108 --> 00:01:39,750
+The first is an
+empty constructor
+
+42
+00:01:39,750 --> 00:01:42,688
+that's necessary for
+instantiating the fragment.
+
+43
+00:01:42,688 --> 00:01:45,339
+The second is a
+method onCreateView,
+
+44
+00:01:45,340 --> 00:01:47,790
+which is called when the
+fragment that we just created
+
+45
+00:01:47,790 --> 00:01:51,892
+is inflated for display, similar
+to onCreate for an activity.
+
+46
+00:01:51,891 --> 00:01:53,849
+So make sure to implement
+both of these methods
+
+47
+00:01:53,849 --> 00:01:55,769
+for any fragment you create.
+
+48
+00:01:55,769 --> 00:01:57,959
+In onCreateView is where
+we should write code
+
+49
+00:01:57,959 --> 00:02:00,569
+to inflate the
+BodyPartFragment layout.
+
+50
+00:02:00,569 --> 00:02:03,159
+I'll call this inflated
+layout root view.
+
+51
+00:02:03,159 --> 00:02:05,099
+I'll also get a reference
+to the image view
+
+52
+00:02:05,099 --> 00:02:08,310
+this will display by calling
+findViewByID on our body part
+
+53
+00:02:08,310 --> 00:02:09,780
+image view.
+
+54
+00:02:09,780 --> 00:02:11,818
+Now I'll also be
+able to set the image
+
+55
+00:02:11,818 --> 00:02:14,008
+resource to be the
+ID of whatever image
+
+56
+00:02:14,008 --> 00:02:15,809
+I want this to display.
+
+57
+00:02:15,810 --> 00:02:18,030
+For now, let's just
+display the first image
+
+58
+00:02:18,030 --> 00:02:19,568
+in the list of heads.
+
+59
+00:02:19,568 --> 00:02:22,078
+To get the list we
+use our utility class,
+
+60
+00:02:22,080 --> 00:02:26,219
+AndroidImageAssets,
+and we call getHeads.
+
+61
+00:02:26,218 --> 00:02:30,358
+This returns a list of all the
+image IDs we're interested in.
+
+62
+00:02:30,360 --> 00:02:33,540
+Then finally, we call get
+0 to get the first item
+
+63
+00:02:33,538 --> 00:02:35,668
+in the list at index 0.
+
+64
+00:02:35,669 --> 00:02:39,539
+We'll later update this code
+to display any image we want.
+
+65
+00:02:39,538 --> 00:02:41,218
+Finally, I'll just
+return the root view
+
+66
+00:02:41,218 --> 00:02:43,079
+that this has created.
+
+67
+00:02:43,080 --> 00:02:44,290
+Now we're almost done.
+
+68
+00:02:44,288 --> 00:02:46,888
+We've created the Fragment
+class and its layout.
+
+69
+00:02:46,889 --> 00:02:49,618
+But we need to include some
+code in our Android Me activity
+
+70
+00:02:49,620 --> 00:02:51,840
+that actually
+displays the fragment.
+
+71
+00:02:51,840 --> 00:02:53,520
+This is because
+every fragment needs
+
+72
+00:02:53,520 --> 00:02:55,740
+to be embedded in
+a host activity.
+
+73
+00:02:55,740 --> 00:02:58,560
+So let's go back to our
+Android Me activity code.
+
+74
+00:02:58,560 --> 00:03:01,378
+First, I'll need to define a
+place in the activity Android
+
+75
+00:03:01,378 --> 00:03:03,989
+Me layout file for
+our fragment to go.
+
+76
+00:03:03,990 --> 00:03:06,420
+This is known as a
+fragment container.
+
+77
+00:03:06,419 --> 00:03:09,479
+It's typically a framework
+layout of some defined size.
+
+78
+00:03:09,479 --> 00:03:12,419
+In this case, 180 dp
+high, and the full width
+
+79
+00:03:12,419 --> 00:03:13,804
+of the phone screen.
+
+80
+00:03:13,805 --> 00:03:15,930
+This defines the space that
+a fragment will take up
+
+81
+00:03:15,930 --> 00:03:19,527
+in a layout, and I'll give
+this an ID head_container.
+
+82
+00:03:19,526 --> 00:03:21,109
+Now that we have a
+fragment container,
+
+83
+00:03:21,110 --> 00:03:23,910
+let's move back to the
+Android Me activity code.
+
+84
+00:03:23,908 --> 00:03:25,590
+In here, in
+onCreate, I'll create
+
+85
+00:03:25,590 --> 00:03:27,960
+a new instance of a
+BodyPartFragment, called
+
+86
+00:03:27,960 --> 00:03:29,492
+headFragment.
+
+87
+00:03:29,491 --> 00:03:31,199
+Then I'll use something
+called a fragment
+
+88
+00:03:31,199 --> 00:03:34,319
+manager and a transaction to
+actually add this new fragment
+
+89
+00:03:34,318 --> 00:03:35,908
+to the screen.
+
+90
+00:03:35,908 --> 00:03:38,128
+This transaction essentially
+adds our fragment
+
+91
+00:03:38,128 --> 00:03:40,268
+to the specified container.
+
+92
+00:03:40,269 --> 00:03:42,810
+And we'll be learning more about
+the fragment manager in just
+
+93
+00:03:42,810 --> 00:03:45,270
+a little bit, so I've
+provided this transaction code
+
+94
+00:03:45,270 --> 00:03:47,010
+in the instructor notes below.
+
+95
+00:03:47,008 --> 00:03:48,839
+This is mainly so that
+you can run the app
+
+96
+00:03:48,840 --> 00:03:52,110
+and visually see if your
+fragment looks like you expect.
+
+97
+00:03:52,110 --> 00:03:54,700
+So let's run the app
+on a phone and see.
+
+98
+00:03:54,699 --> 00:03:55,949
+And here's our head fragment.
+
+99
+00:03:55,949 --> 00:03:56,919
+It looks great.
+
+100
+00:03:56,919 --> 00:03:59,368
+We've coded and displayed
+the first fragment.
+
+101
+00:03:59,370 --> 00:04:01,319
+Next, it will be up
+to you to follow along
+
+102
+00:04:01,318 --> 00:04:02,848
+with the to-dos in the code.
+
+103
+00:04:02,848 --> 00:04:05,758
+Create a body part
+fragment and display it.
+
+104
+00:04:05,758 --> 00:04:09,119
+And remember, there are three
+main parts to this task.
+
+105
+00:04:09,120 --> 00:04:12,180
+First, creating the layout file
+that defines what the body part
+
+106
+00:04:12,180 --> 00:04:13,620
+fragment looks like.
+
+107
+00:04:13,620 --> 00:04:16,079
+Second, creating the
+corresponding fragment class
+
+108
+00:04:16,079 --> 00:04:18,180
+that inflates the layout
+and defines what image
+
+109
+00:04:18,180 --> 00:04:19,528
+will be displayed.
+
+110
+00:04:19,528 --> 00:04:21,180
+And third, displaying
+that fragment
+
+111
+00:04:21,180 --> 00:04:23,100
+through its host
+activity using a fragment
+
+112
+00:04:23,100 --> 00:04:24,960
+manager and a transaction.
+
+113
+00:04:24,959 --> 00:04:26,689
+Good luck.
+

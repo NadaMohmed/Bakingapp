@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#AB47BC</color>
+    <color name="colorPrimaryDark">#8E24AA</color>
+    <color name="colorAccent">#E1BEE7</color>
+    <color name="toolbarText">#fff</color>
+    <color name="mainTextColor">#000</color>
+    <color name="naviArrowBackground">#fff</color>
+    <color name="toolbarTextColor">#fff</color>
+</resources>

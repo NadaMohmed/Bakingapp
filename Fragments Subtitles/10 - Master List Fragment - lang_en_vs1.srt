@@ -1,0 +1,122 @@
+1
+00:00:00,059 --> 00:00:02,100
+Since the master
+list fragment will not
+
+2
+00:00:02,100 --> 00:00:04,500
+change during the
+activity's run time,
+
+3
+00:00:04,500 --> 00:00:06,509
+it is considered
+a static fragment.
+
+4
+00:00:06,509 --> 00:00:09,419
+And I can place it in a layout
+using the fragment tag instead
+
+5
+00:00:09,419 --> 00:00:11,009
+of a transaction.
+
+6
+00:00:11,009 --> 00:00:13,679
+The fragment should have a name
+and a width and height, just
+
+7
+00:00:13,679 --> 00:00:15,108
+like a typical view.
+
+8
+00:00:15,108 --> 00:00:16,800
+And the name is
+actually going to point
+
+9
+00:00:16,800 --> 00:00:18,990
+to the type of fragment this is.
+
+10
+00:00:18,989 --> 00:00:22,228
+And I've given it the
+ID, master list fragment.
+
+11
+00:00:22,230 --> 00:00:24,449
+Finally I'll create a
+new main activity that
+
+12
+00:00:24,449 --> 00:00:26,504
+displays this activity layout.
+
+13
+00:00:26,504 --> 00:00:29,250
+In here, I'll override
+the uncreate method
+
+14
+00:00:29,250 --> 00:00:30,928
+and set the content view.
+
+15
+00:00:30,928 --> 00:00:32,640
+The last step in
+this exercise will
+
+16
+00:00:32,640 --> 00:00:35,579
+be to declare this activity
+in the Android manifest file
+
+17
+00:00:35,579 --> 00:00:37,978
+and set it to default launch.
+
+18
+00:00:37,978 --> 00:00:40,238
+Let's see what it looks like.
+
+19
+00:00:40,240 --> 00:00:42,149
+Here's what the
+app looks like now.
+
+20
+00:00:42,149 --> 00:00:44,628
+In the next exercise, you'll
+be given minor guidance
+
+21
+00:00:44,630 --> 00:00:47,400
+on completing and displaying
+this list of images.
+
+22
+00:00:47,399 --> 00:00:49,094
+By the end of the
+exercise, you should
+
+23
+00:00:49,094 --> 00:00:50,759
+have a list of all
+our images that looks
+
+24
+00:00:50,759 --> 00:00:52,582
+like this on a phone screen.
+
+25
+00:00:52,582 --> 00:00:54,539
+After this section, we'll
+work on communicating
+
+26
+00:00:54,539 --> 00:00:57,920
+between fragments and
+their host activities.
+

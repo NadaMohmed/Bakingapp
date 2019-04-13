@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cv"
+        android:layout_margin="20dp"
+       android:backgroundTint="@color/colorPrimaryDark"
+
+        >
+
+            <TextView
+                android:id="@+id/recipename"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="30dp"
+                android:scaleType="center"
+                android:text="Recipe"
+                android:textSize="40sp"
+                android:fontFamily="sans-serif-condensed"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+
+                />
+
+
+    </android.support.v7.widget.CardView>
+
+
+
+</FrameLayout>

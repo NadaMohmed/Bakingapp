@@ -1,0 +1,421 @@
+1
+00:00:00,530 --> 00:00:02,270
+So you've already
+seen how to add
+
+2
+00:00:02,270 --> 00:00:04,490
+a new fragment to an activity.
+
+3
+00:00:04,490 --> 00:00:07,580
+But let's walk through what
+this code is doing line by line.
+
+4
+00:00:07,580 --> 00:00:10,580
+Inside the Android Me
+activity in onCreate,
+
+5
+00:00:10,580 --> 00:00:13,280
+we've called
+getSupportFragmentManager.
+
+6
+00:00:13,278 --> 00:00:17,689
+This gives us a fragment manager
+using the support library APIs.
+
+7
+00:00:17,690 --> 00:00:20,359
+The manager is responsible
+for starting and completing
+
+8
+00:00:20,359 --> 00:00:22,070
+fragment transactions.
+
+9
+00:00:22,070 --> 00:00:25,219
+So, using the manager, you
+can call a beginTransaction
+
+10
+00:00:25,219 --> 00:00:27,528
+to start a new
+fragment transaction.
+
+11
+00:00:27,530 --> 00:00:30,050
+Next, you decide
+what actions to take.
+
+12
+00:00:30,050 --> 00:00:32,658
+A callToAdd adds a
+fragment and embeds it
+
+13
+00:00:32,658 --> 00:00:34,588
+within a host activity.
+
+14
+00:00:34,590 --> 00:00:37,520
+A callToReplace would
+replace an existing fragment
+
+15
+00:00:37,520 --> 00:00:39,662
+through its
+associated container.
+
+16
+00:00:39,661 --> 00:00:41,118
+Well let's change
+this back to add,
+
+17
+00:00:41,118 --> 00:00:43,750
+since we're embedding
+it within this activity.
+
+18
+00:00:43,750 --> 00:00:45,679
+Add and replace are
+the two main types
+
+19
+00:00:45,679 --> 00:00:47,520
+of actions we'll be
+using in this app,
+
+20
+00:00:47,520 --> 00:00:49,280
+but you can perform
+multiple behaviors
+
+21
+00:00:49,280 --> 00:00:50,929
+like a series of
+adds, replacements,
+
+22
+00:00:50,929 --> 00:00:54,500
+or removals by making multiple
+calls during the same fragment
+
+23
+00:00:54,500 --> 00:00:55,716
+transaction.
+
+24
+00:00:55,716 --> 00:00:57,798
+And when you're ready to
+complete the transaction,
+
+25
+00:00:57,798 --> 00:00:59,570
+you must call commit.
+
+26
+00:00:59,570 --> 00:01:01,759
+To add our other two
+body part fragments,
+
+27
+00:01:01,759 --> 00:01:04,280
+you'll create two more
+containers of the same size
+
+28
+00:01:04,280 --> 00:01:07,340
+as the head container in the
+activity Android Me layout
+
+29
+00:01:07,340 --> 00:01:10,340
+file where we want to
+display the body parts.
+
+30
+00:01:10,340 --> 00:01:12,799
+So you'll create two more
+containers like this one.
+
+31
+00:01:12,799 --> 00:01:15,049
+This time, giving them
+the descriptive IDs
+
+32
+00:01:15,049 --> 00:01:18,049
+bodyContainer and legContainer.
+
+33
+00:01:18,049 --> 00:01:20,359
+And back in our Android
+Me activity code,
+
+34
+00:01:20,358 --> 00:01:22,699
+you'll create a new body
+part fragment for each
+
+35
+00:01:22,700 --> 00:01:24,891
+of those body and leg parts.
+
+36
+00:01:24,891 --> 00:01:27,349
+And I'll actually leave this
+portion of the code up to you,
+
+37
+00:01:27,349 --> 00:01:29,099
+since it's very similar
+to what we've done
+
+38
+00:01:29,099 --> 00:01:31,019
+to display the head fragment.
+
+39
+00:01:31,019 --> 00:01:34,280
+Next, let's look at how to
+change the displayed image.
+
+40
+00:01:34,280 --> 00:01:36,560
+Right now, in the body
+part fragment class,
+
+41
+00:01:36,560 --> 00:01:38,960
+we set the image resource
+to the first head image
+
+42
+00:01:38,959 --> 00:01:40,759
+in our list of IDs.
+
+43
+00:01:40,760 --> 00:01:42,859
+But I actually want to be
+able to dynamically set
+
+44
+00:01:42,858 --> 00:01:45,227
+the image to any one
+I want to display,
+
+45
+00:01:45,227 --> 00:01:47,268
+whether that's an image
+in the middle of the list
+
+46
+00:01:47,269 --> 00:01:49,489
+or an image of a body or legs.
+
+47
+00:01:49,489 --> 00:01:51,569
+So how can I do that?
+
+48
+00:01:51,569 --> 00:01:54,079
+Well, instead of hard
+coding in the list of images
+
+49
+00:01:54,078 --> 00:01:56,358
+and an index to
+display, I can store
+
+50
+00:01:56,358 --> 00:01:59,780
+this information inside the
+body part fragment class.
+
+51
+00:01:59,780 --> 00:02:03,340
+I just have to create variables
+to store that information.
+
+52
+00:02:03,340 --> 00:02:06,290
+I'll store a list of
+image IDs and the index
+
+53
+00:02:06,290 --> 00:02:08,330
+in that list to display.
+
+54
+00:02:08,330 --> 00:02:10,100
+And I'll store them
+in two class variables
+
+55
+00:02:10,098 --> 00:02:14,688
+that I'll define as a list named
+mImageIDs and an int variable
+
+56
+00:02:14,688 --> 00:02:17,180
+named mListIndex.
+
+57
+00:02:17,180 --> 00:02:19,550
+Then I also need to
+define setter methods that
+
+58
+00:02:19,550 --> 00:02:21,950
+let me set the initial
+values for these variables
+
+59
+00:02:21,949 --> 00:02:24,319
+once I create a fragment.
+
+60
+00:02:24,318 --> 00:02:28,458
+So I'll create public methods,
+setImageIDs, and setListIndex
+
+61
+00:02:28,460 --> 00:02:30,950
+that take in a list of
+images to work with,
+
+62
+00:02:30,949 --> 00:02:32,780
+and the index that
+determines which image
+
+63
+00:02:32,780 --> 00:02:34,759
+ID in the list to display.
+
+64
+00:02:34,758 --> 00:02:37,608
+And I'll set them to
+the internal variables.
+
+65
+00:02:37,610 --> 00:02:41,030
+Then I'll update my image
+resource code in onCreateView.
+
+66
+00:02:41,030 --> 00:02:43,848
+I'll delete this
+hardcoded image resource.
+
+67
+00:02:43,848 --> 00:02:46,518
+Then I'll add a code that
+checks that a list of image IDs
+
+68
+00:02:46,520 --> 00:02:47,840
+has been set.
+
+69
+00:02:47,840 --> 00:02:51,408
+Otherwise I'll log a message
+saying that the list is null.
+
+70
+00:02:51,408 --> 00:02:54,650
+At the top of the class, I'll
+create a tag for logging.
+
+71
+00:02:54,650 --> 00:02:56,770
+Then, if the list of
+image IDs is null,
+
+72
+00:02:56,770 --> 00:02:59,090
+I'll create a log
+message that says so.
+
+73
+00:02:59,090 --> 00:03:01,770
+If the list is not null, then
+instead of setting the image
+
+74
+00:03:01,770 --> 00:03:03,700
+resource to the
+first head image,
+
+75
+00:03:03,699 --> 00:03:06,588
+I'll set it to the image
+whose ID is in the image IDs
+
+76
+00:03:06,590 --> 00:03:09,468
+list at the desired list index.
+
+77
+00:03:09,468 --> 00:03:11,900
+And finally, we actually need
+to use these setter methods
+
+78
+00:03:11,900 --> 00:03:13,349
+in our activity code.
+
+79
+00:03:13,348 --> 00:03:15,590
+So let's go back to
+Android Me activity.
+
+80
+00:03:15,590 --> 00:03:18,210
+The rest of the transaction
+code will remain the same.
+
+81
+00:03:18,210 --> 00:03:19,909
+So let's see what
+this looks like.
+
+82
+00:03:19,908 --> 00:03:22,459
+Now we see a different
+head image displayed.
+
+83
+00:03:22,460 --> 00:03:24,980
+Next, it will be your job
+to do the same thing--
+
+84
+00:03:24,979 --> 00:03:27,769
+defining and setting variables
+for each body part fragment
+
+85
+00:03:27,770 --> 00:03:28,800
+class.
+
+86
+00:03:28,800 --> 00:03:31,892
+This includes displaying the
+body and leg images, too.
+
+87
+00:03:31,890 --> 00:03:33,348
+And by the end of
+the exercise, you
+
+88
+00:03:33,348 --> 00:03:36,758
+should have a full body
+image of a custom android.
+

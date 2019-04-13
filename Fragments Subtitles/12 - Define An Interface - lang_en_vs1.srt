@@ -1,0 +1,299 @@
+1
+00:00:00,367 --> 00:00:02,700
+To communicate
+between a fragment and its host
+
+2
+00:00:02,700 --> 00:00:06,179
+activity, you can define an
+interface in the fragment class
+
+3
+00:00:06,179 --> 00:00:08,458
+and implement
+within the activity.
+
+4
+00:00:08,460 --> 00:00:10,380
+So let's do this to
+have our master list
+
+5
+00:00:10,380 --> 00:00:13,230
+fragment communicate
+with the main activity.
+
+6
+00:00:13,230 --> 00:00:15,630
+To define an interface
+we'll create a listener
+
+7
+00:00:15,630 --> 00:00:18,030
+in our master list fragment.
+
+8
+00:00:18,030 --> 00:00:19,350
+You can name it anything.
+
+9
+00:00:19,350 --> 00:00:21,630
+I'm calling it
+onimageclicklistener,
+
+10
+00:00:21,629 --> 00:00:24,539
+and giving it the
+variable m callback.
+
+11
+00:00:24,539 --> 00:00:26,579
+This will eventually be
+implemented in the host
+
+12
+00:00:26,579 --> 00:00:28,439
+activity, and there
+we can program
+
+13
+00:00:28,440 --> 00:00:30,150
+it to perform some
+action whenever
+
+14
+00:00:30,149 --> 00:00:31,899
+a list image is clicked.
+
+15
+00:00:31,899 --> 00:00:34,948
+Then, to define this interface
+we just specify the method
+
+16
+00:00:34,950 --> 00:00:36,500
+that it triggers.
+
+17
+00:00:36,500 --> 00:00:38,158
+Here we're having
+it trigger method
+
+18
+00:00:38,158 --> 00:00:40,228
+called on image selected.
+
+19
+00:00:40,228 --> 00:00:42,265
+This takes an int
+variable position,
+
+20
+00:00:42,267 --> 00:00:44,850
+which will just be the position
+that a user clicks on our grid
+
+21
+00:00:44,850 --> 00:00:46,300
+view.
+
+22
+00:00:46,298 --> 00:00:49,018
+We also have to make sure that
+the host activity implements
+
+23
+00:00:49,020 --> 00:00:50,070
+the callback.
+
+24
+00:00:50,070 --> 00:00:51,600
+And we can check
+in the master list
+
+25
+00:00:51,600 --> 00:00:53,969
+fragments on attach method.
+
+26
+00:00:53,969 --> 00:00:55,859
+This is where a
+fragment attaches itself
+
+27
+00:00:55,859 --> 00:00:57,539
+to its host activity.
+
+28
+00:00:57,539 --> 00:00:59,518
+Then it checks to see
+that the image click
+
+29
+00:00:59,520 --> 00:01:02,400
+listener is implemented,
+and if it's not it
+
+30
+00:01:02,399 --> 00:01:04,140
+throws an exception.
+
+31
+00:01:04,140 --> 00:01:07,200
+Lastly, in oncreate view, we
+need to trigger the callback
+
+32
+00:01:07,200 --> 00:01:08,769
+on a click.
+
+33
+00:01:08,769 --> 00:01:11,250
+So we'll set a click
+listener on the grid view,
+
+34
+00:01:11,250 --> 00:01:14,099
+and call the callback
+method onimageselected
+
+35
+00:01:14,099 --> 00:01:16,959
+whenever an item in our
+grid view is clicked.
+
+36
+00:01:16,959 --> 00:01:19,558
+Then we can pass in the
+clicked position too.
+
+37
+00:01:19,560 --> 00:01:21,870
+Now that we've defined this
+interface in our fragment,
+
+38
+00:01:21,870 --> 00:01:23,920
+let's link it to
+our main activity.
+
+39
+00:01:23,920 --> 00:01:26,159
+I mentioned that in order
+to receive callbacks
+
+40
+00:01:26,159 --> 00:01:28,590
+from the master list
+fragment, the main activity
+
+41
+00:01:28,590 --> 00:01:32,520
+must implement the interface we
+defined in the fragment class.
+
+42
+00:01:32,519 --> 00:01:34,868
+So right at the top we
+write implementmasterl
+
+43
+00:01:34,870 --> 00:01:38,075
+istfragment.onim
+ageclicklistener.
+
+44
+00:01:38,075 --> 00:01:39,450
+Then you can see
+we get an error,
+
+45
+00:01:39,450 --> 00:01:41,460
+because this means we
+also need to implement
+
+46
+00:01:41,459 --> 00:01:44,399
+the method on image selected.
+
+47
+00:01:44,400 --> 00:01:47,550
+So let's define the behavior
+for on image selected.
+
+48
+00:01:47,549 --> 00:01:50,219
+And this is where we'll
+handle fragment communication.
+
+49
+00:01:50,218 --> 00:01:53,428
+This interface acts a lot
+like a custom click listener.
+
+50
+00:01:53,430 --> 00:01:55,050
+It's triggered in
+the fragment class,
+
+51
+00:01:55,049 --> 00:01:57,810
+and performs some action
+in the host activity.
+
+52
+00:01:57,810 --> 00:02:00,030
+For now in on image
+selected, I've
+
+53
+00:02:00,030 --> 00:02:02,099
+created a Toast to see
+if we've implemented
+
+54
+00:02:02,099 --> 00:02:03,959
+this communication correctly.
+
+55
+00:02:03,959 --> 00:02:06,209
+It should display a message
+about the position clicked
+
+56
+00:02:06,209 --> 00:02:07,808
+when an image is selected.
+
+57
+00:02:07,810 --> 00:02:09,090
+Let's try it out.
+
+58
+00:02:09,090 --> 00:02:11,008
+Now you should see
+a short Toast appear
+
+59
+00:02:11,008 --> 00:02:14,250
+every time I click on an
+image in the master list.
+
+60
+00:02:14,250 --> 00:02:18,449
+The positions range from
+0 all the way down to 35.
+
+61
+00:02:18,449 --> 00:02:20,639
+Next, it will be your turn
+to complete this code,
+
+62
+00:02:20,639 --> 00:02:22,199
+and successfully
+implement fragment
+
+63
+00:02:22,199 --> 00:02:24,919
+to activity communication.
+

@@ -1,0 +1,67 @@
+1
+00:00:00,690 --> 00:00:01,589
+Great job.
+
+2
+00:00:01,589 --> 00:00:03,988
+You've now completed your
+Android Me app.
+
+3
+00:00:03,990 --> 00:00:05,490
+In the process,
+you learned a lot
+
+4
+00:00:05,490 --> 00:00:07,860
+about the fragment
+lifecycle and common uses
+
+5
+00:00:07,860 --> 00:00:10,769
+for fragments in
+existing real world apps,
+
+6
+00:00:10,769 --> 00:00:12,689
+and you got a lot of
+practice dynamically
+
+7
+00:00:12,689 --> 00:00:14,580
+creating and changing
+fragments to build
+
+8
+00:00:14,580 --> 00:00:17,309
+a responsive and dynamic UI.
+
+9
+00:00:17,309 --> 00:00:19,349
+The app we built was
+a little bit tricky,
+
+10
+00:00:19,350 --> 00:00:21,390
+so I'm confident that
+you'll be able to use
+
+11
+00:00:21,390 --> 00:00:24,510
+what you learned in this
+lesson in other apps too.
+
+12
+00:00:24,510 --> 00:00:26,730
+So again, great job
+completing this app
+
+13
+00:00:26,730 --> 00:00:30,539
+and truly harnessing the power
+of reusability and modularity.
+
+14
+00:00:30,539 --> 00:00:33,200
+Now let's go show off this app.
+

@@ -1,0 +1,221 @@
+1
+00:00:00,000 --> 00:00:01,833
+Now you've
+created and displayed
+
+2
+00:00:01,833 --> 00:00:03,508
+your first fragment,
+and now it's
+
+3
+00:00:03,508 --> 00:00:05,519
+time to add the rest
+of the fragments.
+
+4
+00:00:05,519 --> 00:00:07,379
+There are two more
+body parts to display
+
+5
+00:00:07,378 --> 00:00:11,698
+(to complete the androidme image)
+the body and leg portions.
+
+6
+00:00:11,698 --> 00:00:13,288
+And you have almost
+enough information
+
+7
+00:00:13,288 --> 00:00:15,775
+to create these without
+any more guidance.
+
+8
+00:00:15,775 --> 00:00:17,608
+But let's go through
+in a little more detail
+
+9
+00:00:17,609 --> 00:00:19,439
+how fragment creation works.
+
+10
+00:00:19,440 --> 00:00:21,720
+To create or swap out
+fragments, Android
+
+11
+00:00:21,719 --> 00:00:23,609
+uses the FragmentManager.
+
+12
+00:00:23,609 --> 00:00:25,309
+The FragmentManager
+class provides
+
+13
+00:00:25,309 --> 00:00:29,879
+methods that allow you to add,
+remove, and replace fragments
+
+14
+00:00:29,879 --> 00:00:32,280
+in an activity at runtime.
+
+15
+00:00:32,280 --> 00:00:35,259
+These are all types of
+fragment transactions.
+
+16
+00:00:35,259 --> 00:00:38,009
+These transactions let you
+create a dynamic experience
+
+17
+00:00:38,009 --> 00:00:40,177
+and help efficiently
+add and remove fragments
+
+18
+00:00:40,179 --> 00:00:41,969
+without you having to
+worry about the finer
+
+19
+00:00:41,969 --> 00:00:44,728
+details of memory management.
+
+20
+00:00:44,728 --> 00:00:47,278
+An important rule when dealing
+with dynamically adding
+
+21
+00:00:47,280 --> 00:00:49,980
+or removing fragments while
+an activity is running
+
+22
+00:00:49,978 --> 00:00:51,539
+is that your
+activity layout must
+
+23
+00:00:51,539 --> 00:00:53,879
+include a fragment
+container in which you
+
+24
+00:00:53,880 --> 00:00:55,710
+can add each fragment.
+
+25
+00:00:55,710 --> 00:00:58,620
+This is often an
+empty frame layout.
+
+26
+00:00:58,618 --> 00:01:01,768
+The container is responsible for
+defining the size and placement
+
+27
+00:01:01,770 --> 00:01:03,480
+of a fragment,
+since the fragment
+
+28
+00:01:03,478 --> 00:01:07,149
+doesn't have to take up an
+entire screen like an activity.
+
+29
+00:01:07,150 --> 00:01:09,524
+And when you add or replace
+a fragment at runtime,
+
+30
+00:01:09,524 --> 00:01:11,939
+you'll need to tell the fragment
+transaction the container
+
+31
+00:01:11,938 --> 00:01:14,128
+to place the
+updated fragment in.
+
+32
+00:01:14,129 --> 00:01:16,588
+So containers are needed
+if you plan on performing
+
+33
+00:01:16,590 --> 00:01:18,840
+fragment transactions.
+
+34
+00:01:18,840 --> 00:01:21,540
+The one case where you will
+not need a fragment container
+
+35
+00:01:21,540 --> 00:01:24,334
+is when you know that your
+fragment will remain static,
+
+36
+00:01:24,334 --> 00:01:26,250
+which means it won't
+change during the runtime
+
+37
+00:01:26,250 --> 00:01:27,718
+of the activity.
+
+38
+00:01:27,718 --> 00:01:29,640
+Then it will not need
+a container layout
+
+39
+00:01:29,640 --> 00:01:33,090
+because a static fragment
+size, content, and location can
+
+40
+00:01:33,090 --> 00:01:34,500
+be defined and
+will stay the same
+
+41
+00:01:34,500 --> 00:01:36,605
+for the duration of an activity.
+
+42
+00:01:36,605 --> 00:01:38,188
+And we'll see an
+example of this later
+
+43
+00:01:38,188 --> 00:01:41,889
+on with the MasterListFragment
+that displays all our images.
+
+44
+00:01:41,890 --> 00:01:43,650
+For now, let's get a
+little more practice
+
+45
+00:01:43,650 --> 00:01:45,750
+using the FragmentManager
+and dynamically
+
+46
+00:01:45,750 --> 00:01:48,230
+adding fragments to our screen.
+

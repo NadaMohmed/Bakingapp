@@ -1,0 +1,283 @@
+1
+00:00:00,234 --> 00:00:02,649
+Now that we know how
+to successfully communicate
+
+2
+00:00:02,649 --> 00:00:05,620
+between our master list
+fragment and the main activity.
+
+3
+00:00:05,620 --> 00:00:07,220
+And there's one more step.
+
+4
+00:00:07,219 --> 00:00:10,150
+We need to transfer information
+from our main activity
+
+5
+00:00:10,150 --> 00:00:12,790
+to our body part fragments
+to effectively update
+
+6
+00:00:12,788 --> 00:00:14,558
+their contents.
+
+7
+00:00:14,560 --> 00:00:17,830
+So when an image is selected
+in the master list fragment,
+
+8
+00:00:17,829 --> 00:00:19,329
+we'll want to store
+the list index
+
+9
+00:00:19,329 --> 00:00:22,239
+to display for each of the
+head, body, and leg images
+
+10
+00:00:22,239 --> 00:00:23,500
+that were selected.
+
+11
+00:00:23,500 --> 00:00:25,870
+Then display those choices
+in the following Android Me
+
+12
+00:00:25,870 --> 00:00:27,519
+activity.
+
+13
+00:00:27,518 --> 00:00:30,308
+First, I'll add class
+variables to store the location
+
+14
+00:00:30,309 --> 00:00:31,809
+of the clicked images.
+
+15
+00:00:31,809 --> 00:00:35,320
+One variable each for the
+head, body, and leg images.
+
+16
+00:00:35,320 --> 00:00:37,359
+These values will
+all be in the range 0
+
+17
+00:00:37,359 --> 00:00:40,880
+through 11, because there's 12
+images for each of these lists.
+
+18
+00:00:40,880 --> 00:00:43,330
+But the click position
+goes all the way up to 35,
+
+19
+00:00:43,329 --> 00:00:46,989
+as we said before, since
+the list of all images.
+
+20
+00:00:46,990 --> 00:00:49,810
+So to get the correct body
+part in the correct index,
+
+21
+00:00:49,810 --> 00:00:51,880
+we have to do some helpful math.
+
+22
+00:00:51,880 --> 00:00:55,429
+We know that there are 12 images
+for heads, bodies, and legs.
+
+23
+00:00:55,429 --> 00:00:57,908
+So if we divide the
+click position by 12,
+
+24
+00:00:57,908 --> 00:00:59,689
+we can identify
+the type of image,
+
+25
+00:00:59,689 --> 00:01:02,259
+whether it's a head,
+body, or leg, and the list
+
+26
+00:01:02,259 --> 00:01:04,959
+index they are in their
+respective fragment image idea
+
+27
+00:01:04,959 --> 00:01:05,740
+lists.
+
+28
+00:01:05,739 --> 00:01:09,280
+Here the body part number will
+be 0 for the head fragment,
+
+29
+00:01:09,280 --> 00:01:12,760
+1 for the body, and 2
+for the leg fragment.
+
+30
+00:01:12,760 --> 00:01:16,719
+And the list index will always
+be a value between 0 and 11.
+
+31
+00:01:16,718 --> 00:01:18,518
+Then using a switch
+statement, we
+
+32
+00:01:18,519 --> 00:01:21,399
+can update the index variables
+in the on image selected
+
+33
+00:01:21,400 --> 00:01:22,840
+callback.
+
+34
+00:01:22,840 --> 00:01:25,930
+And we'll set the correct
+index no matter what the case.
+
+35
+00:01:25,930 --> 00:01:28,400
+Then to actually pass this
+information to an Android Me
+
+36
+00:01:28,400 --> 00:01:31,180
+activity, we'll need to
+bundle it up and attach it
+
+37
+00:01:31,180 --> 00:01:34,840
+to a new intent that launches
+a new Android Me activity.
+
+38
+00:01:34,840 --> 00:01:38,920
+And again a bundle is just
+a set of key value pairs.
+
+39
+00:01:38,920 --> 00:01:40,540
+To actually launch
+this activity,
+
+40
+00:01:40,540 --> 00:01:42,940
+I'm also going to add a
+button labeled Next that
+
+41
+00:01:42,938 --> 00:01:46,869
+moves us from our master list
+to the Android Me activity.
+
+42
+00:01:46,870 --> 00:01:49,590
+So in our master list
+fragment we at the bottom
+
+43
+00:01:49,590 --> 00:01:52,780
+I'll add a Next button,
+and I'll wrap both of these
+
+44
+00:01:52,780 --> 00:01:55,480
+in a vertical linear layout.
+
+45
+00:01:55,480 --> 00:01:57,730
+I'll give the button the ID
+Next button, so that I can
+
+46
+00:01:57,730 --> 00:02:00,079
+refer to it in our activity.
+
+47
+00:02:00,078 --> 00:02:01,988
+So back in the
+main activity code,
+
+48
+00:02:01,989 --> 00:02:04,448
+I'll give a reference to that
+Next button, and on a click
+
+49
+00:02:04,450 --> 00:02:07,120
+it will launch a new
+Android Me activity.
+
+50
+00:02:07,120 --> 00:02:09,520
+There's one more task
+that I'll leave up to you.
+
+51
+00:02:09,520 --> 00:02:11,260
+In the Android Me
+activity, you'll
+
+52
+00:02:11,258 --> 00:02:13,448
+have to retrieve the bundle
+of information that's
+
+53
+00:02:13,449 --> 00:02:16,000
+been sent in this intent,
+and set the correct list
+
+54
+00:02:16,000 --> 00:02:18,669
+index for all the
+body part fragments.
+
+55
+00:02:18,669 --> 00:02:20,379
+Once you complete
+this exercise, you'll
+
+56
+00:02:20,378 --> 00:02:21,728
+have a complete phone app.
+
+57
+00:02:21,729 --> 00:02:23,289
+And we just have
+one more exercise
+
+58
+00:02:23,288 --> 00:02:25,538
+to complete our two
+pane tablet layout.
+
+59
+00:02:25,538 --> 00:02:27,718
+Great job so far.
+

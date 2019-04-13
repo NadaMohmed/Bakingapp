@@ -1,0 +1,115 @@
+1
+00:00:00,446 --> 00:00:01,569
+(cezanne camacho) Hey there.
+
+2
+00:00:01,569 --> 00:00:03,429
+Welcome to Advanced Android.
+
+3
+00:00:03,430 --> 00:00:05,740
+My name is Cezanne
+Camacho, and in this lesson
+
+4
+00:00:05,740 --> 00:00:07,810
+we'll be learning
+about fragments.
+
+5
+00:00:07,809 --> 00:00:09,609
+Fragments are Android
+app components
+
+6
+00:00:09,609 --> 00:00:12,070
+that represent a
+self-contained portion of user
+
+7
+00:00:12,070 --> 00:00:14,198
+interface in an activity.
+
+8
+00:00:14,198 --> 00:00:16,719
+You can think of them
+as mini-activities.
+
+9
+00:00:16,719 --> 00:00:18,669
+We'll learn all about
+fragments in this lesson
+
+10
+00:00:18,670 --> 00:00:21,940
+by working together to
+build an app that uses them.
+
+11
+00:00:21,940 --> 00:00:24,280
+We'll be building an app
+called Android Me that
+
+12
+00:00:24,280 --> 00:00:27,450
+lets us create and customize
+the appearance of an Android
+
+13
+00:00:27,449 --> 00:00:29,739
+by giving it different
+hairstyles, clothing,
+
+14
+00:00:29,739 --> 00:00:31,298
+and accessories.
+
+15
+00:00:31,300 --> 00:00:33,850
+I've already provided some
+starting code for this app,
+
+16
+00:00:33,850 --> 00:00:35,660
+and I'll walk through that soon.
+
+17
+00:00:35,658 --> 00:00:37,088
+For now, know that
+we'll be using
+
+18
+00:00:37,090 --> 00:00:39,970
+sets of images that let
+us choose the head, body,
+
+19
+00:00:39,969 --> 00:00:42,975
+and leg portions of the
+Android individually.
+
+20
+00:00:42,975 --> 00:00:44,558
+We'll also be following
+the principles
+
+21
+00:00:44,560 --> 00:00:47,530
+of responsive design, which
+means that we'll build our app
+
+22
+00:00:47,530 --> 00:00:51,225
+to look great across a variety
+of different screen sizes.
+
+23
+00:00:51,225 --> 00:00:52,600
+Next, we'll see
+how fragments can
+
+24
+00:00:52,600 --> 00:00:55,980
+help us build responsive
+and flexible layouts.
+

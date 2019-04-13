@@ -1,0 +1,167 @@
+1
+00:00:01,139 --> 00:00:04,049
+After seeing the Android Me
+app, you might be thinking,
+
+2
+00:00:04,049 --> 00:00:07,469
+aren't these android images just
+image views and view groups?
+
+3
+00:00:07,469 --> 00:00:09,179
+Why do we need to
+use fragments instead
+
+4
+00:00:09,179 --> 00:00:11,788
+of using what we already know
+about building responsive
+
+5
+00:00:11,788 --> 00:00:12,929
+layouts?
+
+6
+00:00:12,929 --> 00:00:14,910
+Well, the real power
+in using fragments
+
+7
+00:00:14,910 --> 00:00:18,420
+is that they allow us to fully
+modularize our activities.
+
+8
+00:00:18,420 --> 00:00:21,510
+You can combine multiple
+fragments in a single activity
+
+9
+00:00:21,510 --> 00:00:24,420
+to build a multi-pane
+UI, like on a tablet.
+
+10
+00:00:24,420 --> 00:00:26,160
+And you can reuse
+a single fragment
+
+11
+00:00:26,160 --> 00:00:27,990
+in multiple activities.
+
+12
+00:00:27,989 --> 00:00:30,509
+So, separate from simple
+layouts and views, a fragment
+
+13
+00:00:30,510 --> 00:00:32,770
+also has its own life cycle.
+
+14
+00:00:32,770 --> 00:00:34,679
+It can receive its
+own user input events
+
+15
+00:00:34,679 --> 00:00:36,270
+like clicks or swipes.
+
+16
+00:00:36,270 --> 00:00:38,760
+You can also dynamically
+add or remove them
+
+17
+00:00:38,759 --> 00:00:40,798
+while an activity is running.
+
+18
+00:00:40,798 --> 00:00:42,570
+An example where
+this is very useful
+
+19
+00:00:42,570 --> 00:00:44,340
+is in the master
+detail flow we talked
+
+20
+00:00:44,340 --> 00:00:46,290
+about earlier where,
+on a phone, we
+
+21
+00:00:46,289 --> 00:00:48,088
+have two separate activities.
+
+22
+00:00:48,090 --> 00:00:50,070
+One that holds a master
+list of items, then
+
+23
+00:00:50,070 --> 00:00:52,740
+another that displays
+more detailed content.
+
+24
+00:00:52,740 --> 00:00:55,410
+And a good tablet layout will
+have both of these activities
+
+25
+00:00:55,408 --> 00:00:56,698
+side by side.
+
+26
+00:00:56,700 --> 00:00:59,640
+However, activities are meant
+to be on separate screens
+
+27
+00:00:59,640 --> 00:01:02,109
+and not embedded
+within one another.
+
+28
+00:01:02,109 --> 00:01:04,319
+So, instead, Android
+has fragments
+
+29
+00:01:04,319 --> 00:01:07,170
+which are designed to be
+placed alone or in groups
+
+30
+00:01:07,170 --> 00:01:09,450
+within a single host activity.
+
+31
+00:01:09,450 --> 00:01:11,100
+Also, a fragment
+doesn't have to be
+
+32
+00:01:11,099 --> 00:01:14,168
+paired with the same activity
+or even the same location
+
+33
+00:01:14,170 --> 00:01:17,430
+in an activity each
+time it's instantiated.
+
+34
+00:01:17,430 --> 00:01:19,980
+All of these traits,
+including modularity,
+
+35
+00:01:19,980 --> 00:01:24,050
+make fragments extremely useful
+for building a flexible UI.
+
